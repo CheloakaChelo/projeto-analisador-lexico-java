@@ -8,7 +8,8 @@ public class Token {
 
     private String token;
 
-    public Token(TokenName tipo, String token) {
+    public Token(int numero, TokenName tipo, String token) {
+        this.numero = numero;
         this.tipo = tipo;
         this.token = token;
     }
