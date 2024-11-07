@@ -8,8 +8,9 @@
 
         private String token;
 
-        public Token(){
-
+        public Token(int numero, TokenName tipo, int atualId){
+            this.numero = numero;
+            this.tipo = tipo;
         }
 
         public Token(int numero, TokenName tipo, String token) {
