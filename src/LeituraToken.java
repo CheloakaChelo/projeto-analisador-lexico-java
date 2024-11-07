@@ -254,9 +254,9 @@ public class LeituraToken {
             }
 
             int atualId = idMap.get(token);
-            System.out.println(" ID: " + atualId);
+            System.out.println(" ID " + atualId + ": " + token);
             numerotokens++;
-            return new Token(numerotokens, TokenName.ID, token);
+            return new Token(numerotokens, TokenName.ID, atualId);
         }
         return null;
     }
