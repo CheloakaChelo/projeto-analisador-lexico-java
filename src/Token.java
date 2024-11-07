@@ -40,6 +40,6 @@
 
         @Override
         public String toString() {
-            return "(" + numero + "-> "+ tipo +"-> "+ token +")";
+            return numero + " -> "+ tipo +" -> "+ token;
         }
     }
