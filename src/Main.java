@@ -3,7 +3,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Caminho do arquivo de teste
-        String caminhoArquivo = "C:\\Users\\rafae\\OneDrive\\Documentos\\codigoC.txt";
+        String caminhoArquivo = "C:\\Users\\João Marcelo\\Documents\\codigoC.txt";
 
         // Inicializa a classe de leitura de tokens
         LeituraToken leitor = new LeituraToken();
@@ -14,7 +14,7 @@ public class Main {
 
         // Exibe os tokens identificados
         System.out.println("Tokens encontrados:");
-        for (Token token : tokens) {
+            for (Token token : tokens) {
             System.out.println(token);
         }
 

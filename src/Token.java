@@ -2,30 +2,24 @@
 
     public class Token {
 
-        private int numero;
 
         private TokenName tipo;
 
         private String token;
 
-        public Token(int numero, TokenName tipo, int atualId){
-            this.numero = numero;
+        private int numeroId;
+
+
+        public Token(TokenName tipo, int numeroId){
             this.tipo = tipo;
+            this.numeroId = numeroId;
         }
 
-        public Token(int numero, TokenName tipo, String token) {
-            this.numero = numero;
+        public Token(TokenName tipo, String token) {
             this.tipo = tipo;
             this.token = token;
         }
 
-        public int getNumero() {
-            return numero;
-        }
-
-        public void setNumero(int numero) {
-            this.numero = numero;
-        }
 
         public TokenName getTipo() {
             return tipo;
@@ -43,8 +37,13 @@
             this.token = token;
         }
 
+
         @Override
         public String toString() {
-            return numero + " -> "+ tipo +" -> "+ token;
+            if (tipo == TokenName.ID){
+            return "Token" + "-> " + tipo + " -> "+ numeroId;
+            }else {
+            return "Token" + " -> "+ tipo +" -> "+ token;
+            }
         }
     }
