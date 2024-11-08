@@ -60,16 +60,22 @@ public class LeituraToken {
             }
 
             if (ch == '"'){
+                StringBuilder stringLiteral = new StringBuilder();
                 while((chLido = leitorTxt.lerProximoCaractere()) != -1){
                     ch = (char) chLido;
+
                     if (ch == '"'){
                         break;
                     }
                     if (ch == '\\'){
                         leitorTxt.lerProximoCaractere();
+                        ch = (char) chLido;
                     }
+
+                    stringLiteral.append(ch);
                 }
-                continue;
+                return new Token(TokenName.STRING_LITERAL, stringLiteral.toString());
+
             }
 
             if (Character.isLetter(ch) || ch == '_'){
@@ -231,13 +237,15 @@ public class LeituraToken {
 
             if (idMap.containsKey(token)) {
                 idMap.put(token, numeroId);
+                int atualId = idMap.get(token);
+                System.out.println(" ID " + atualId + ": " + token);
             }else{
                 numeroId++;
                 idMap.put(token, numeroId);
+                int numeroId = idMap.get(token);
+                System.out.println(" ID " + numeroId + ": " + token);
             }
 
-            int atualId = idMap.get(token);
-            System.out.println(" ID " + atualId + ": " + token);
             return new Token(TokenName.ID, numeroId);
         }
 
@@ -270,4 +278,3 @@ public class LeituraToken {
     }
 
 }
-//a
