@@ -3,13 +3,11 @@ import java.util.HashSet;
 
 public class Simbolos {
 
-        private static Set<Integer> idsImpressos = new HashSet<>();
-
         private int numero;
 
         private String simbolo;
 
-        public Simbolos(Set<Integer> idsImpressos, int numero, String simbolo) {
+        public Simbolos(int numero, String simbolo) {
             this.numero = numero;
             this.simbolo = simbolo;
 

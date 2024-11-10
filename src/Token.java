@@ -41,9 +41,9 @@
         @Override
         public String toString() {
             if (tipo == TokenName.ID){
-            return "Token" + "-> " + tipo + " -> "+ numeroId;
+            return tipo + " -> "+ numeroId;
             }else {
-            return "Token" + " -> "+ tipo +" -> "+ token;
+            return tipo +" -> "+ token;
             }
         }
     }

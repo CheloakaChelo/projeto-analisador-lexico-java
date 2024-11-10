@@ -222,6 +222,7 @@ public class LeituraToken {
         return null;
     }
 
+
     private int numeroId = 0;
     private Map<String, Integer> idMap = new HashMap<>();
 
@@ -230,23 +231,20 @@ public class LeituraToken {
         Pattern pat = Pattern.compile(regex);
         Matcher mat = pat.matcher(token);
 
+
         if (mat.matches()){
             if (isKeyWord(token)){
                 return new Token(TokenName.PALAVRA_RESERVADA, token);
             }
 
-            if (idMap.containsKey(token)) {
-                idMap.put(token, numeroId);
-                int atualId = idMap.get(token);
-                System.out.println(" ID " + atualId + ": " + token);
-            }else{
+            if (!idMap.containsKey(token)) {
                 numeroId++;
                 idMap.put(token, numeroId);
-                int numeroId = idMap.get(token);
                 System.out.println(" ID " + numeroId + ": " + token);
             }
 
-            return new Token(TokenName.ID, numeroId);
+            int atualId = idMap.get(token);
+            return new Token(TokenName.ID, atualId);
         }
 
         return null;
