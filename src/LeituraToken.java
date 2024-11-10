@@ -248,7 +248,7 @@ public class LeituraToken {
                 return new Token(numerotokens, TokenName.PALAVRA_RESERVADA, token);
             }
 
-            if (idMap.containsKey(token)){
+            if (!idMap.containsKey(token)){
                 numeroId++;
                 idMap.put(token, numeroId);
             }
