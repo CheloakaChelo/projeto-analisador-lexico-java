@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 
 public class LeituraToken {
     LeitorTxt leitorTxt;
-    int numerotokens = 0;
-
 
     public void leituraToken(String arquivo){
         leitorTxt = new LeitorTxt(arquivo);
@@ -67,10 +65,6 @@ public class LeituraToken {
                     if (ch == '"'){
                         break;
                     }
-                    if (ch == '\\'){
-                        leitorTxt.lerProximoCaractere();
-                        ch = (char) chLido;
-                    }
 
                     stringLiteral.append(ch);
                 }
@@ -91,7 +85,6 @@ public class LeituraToken {
                             if (!idAtual.isEmpty()){
                                 return new Token(TokenName.ID, idAtual);
                             }
-                            return new Token(TokenName.PONTO, ".");
                         }
                         leitorTxt.retroceder(chLido);
                         break;
@@ -216,6 +209,8 @@ public class LeituraToken {
                         leitorTxt.retroceder(nxtCh);
                         return new Token(TokenName.OPERADOR_REFERENCIA, "&");
                     }
+                case '#':
+                    return new Token(TokenName.PRE_PROCESSADOR, "#");
             }
 
         }
