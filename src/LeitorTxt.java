@@ -33,8 +33,11 @@ public class LeitorTxt {
     }
 
     public void retroceder(int caractere) {
-        // Armazena o caractere para que ele seja lido novamente na próxima chamada de lerProximoCaractere
-        ultimoCaractereLido = caractere;
+        if (ultimoCaractereLido == -1) { // Garante que só um caractere é armazenado
+            ultimoCaractereLido = caractere;
+        } else {
+            throw new IllegalStateException("Já existe um caractere retrocedido!");
+        }
     }
 
     public void close() {
