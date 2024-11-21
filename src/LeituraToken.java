@@ -8,10 +8,12 @@ import java.util.regex.Pattern;
 public class LeituraToken {
     LeitorTxt leitorTxt;
 
+    //Chama a classe LeitorTxt
     public void leituraToken(String arquivo){
         leitorTxt = new LeitorTxt(arquivo);
     }
 
+    //Cria a lista de tokens
     public List<Token> criarTokens(Token token){
         List<Token> listaTokens = new ArrayList<>();
 
@@ -21,6 +23,7 @@ public class LeituraToken {
         return listaTokens;
     }
 
+    //Faz a passagem de token em token
     public Token nextToken(){
         int chLido;
         StringBuilder palavra = new StringBuilder();
@@ -230,6 +233,7 @@ public class LeituraToken {
     }
 
 
+    //Faz a verificação de Identificadores e gera a Tabela de Símbolos
     private int numeroId = 0;
     private Map<String, Integer> idMap = new HashMap<>();
 
@@ -257,6 +261,7 @@ public class LeituraToken {
         return null;
     }
 
+    //Verifica se o token é uma Palavra Reservada
     private boolean isKeyWord(String palavra){
         String[] keyWords = { "auto", "break", "case", "char", "const", "continue",
                 "default", "do", "double", "else", "enum", "extern", "float", "for", "goto",
@@ -271,6 +276,7 @@ public class LeituraToken {
         return false;
     }
 
+    //Verifica se o token é um número
     private Token verificaNumero(String token){
         String regexNum = "^[0-9]*$";
         Pattern pat = Pattern.compile(regexNum);
